@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Tennis.Models
 {
-    internal class Referee
+    internal class Referee : Person
     {
     }
 }

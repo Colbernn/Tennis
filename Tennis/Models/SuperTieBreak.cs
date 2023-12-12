@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Tennis.Models
 {
-    internal class SuperTieBreak
+    internal class SuperTieBreak : Set
     {
     }
 }

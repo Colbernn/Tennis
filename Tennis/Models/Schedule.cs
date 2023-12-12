@@ -9,5 +9,10 @@ namespace Tennis.Models
     internal class Schedule
     {
         private int actualRound;
-    }
+
+        int ActualRound { 
+            get { return actualRound; } 
+            set { actualRound = value; } 
+        }
+	}
 }
