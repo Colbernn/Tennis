@@ -7,40 +7,40 @@ using System.Text;
 using System.Threading.Tasks;
 using Tennis.Models;
 
-
 namespace Tennis.DAO
 {
-	internal class CourtDAO : DAO<Court>
+	internal class RefereeDAO : DAO<Referee>
 	{
-		public override bool Create(Court obj)
+		public override bool Create(Referee obj)
 		{
 			throw new NotImplementedException();
 		}
 
-		public override bool Delete(Court obj)
+		public override bool Delete(Referee obj)
 		{
 			throw new NotImplementedException();
 		}
 
-		public override Court Find(int id)
+		public override Referee Find(int id)
 		{
-			Court court = null;
+			Referee referee = null;
 			try
 			{
 				using (SqlConnection connection = new SqlConnection(this.connectionString))
 				{
-					SqlCommand cmd = new SqlCommand("SELECT * FROM dbo.Court WHERE id_court = @id", connection);
+					SqlCommand cmd = new SqlCommand("SELECT * FROM dbo.Player WHERE id_referee = @id", connection);
 					cmd.Parameters.AddWithValue("id", id);
 					connection.Open();
 					using (SqlDataReader reader = cmd.ExecuteReader())
 					{
 						if (reader.Read())
 						{
-							court = new Court()
+							referee = new Referee()
 							{
-								id_court = reader.GetInt32("id_court"),
-								nbSpectators = reader.GetInt32("nbSpectators"),
-								covered = reader.GetBoolean("covered")
+								id = reader.GetInt32("id_referee"),
+								firstname = reader.GetString("firstname"),
+								lastname = reader.GetString("lastname"),
+								nationality = reader.GetString("nationality")
 							};
 						}
 					}
@@ -50,10 +50,10 @@ namespace Tennis.DAO
 			{
 				throw new Exception("an sql error occured!");
 			}
-			return court;
+			return referee;
 		}
 
-		public override bool Update(Court obj)
+		public override bool Update(Referee obj)
 		{
 			throw new NotImplementedException();
 		}

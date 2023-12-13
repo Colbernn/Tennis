@@ -10,6 +10,8 @@ namespace Tennis.Models
     {
         private int id_tournament;
         private string name;
+        List<Court> courts;
+        List<Referee> referees;
 
        int ID { get { return id_tournament; } }
        string Name
